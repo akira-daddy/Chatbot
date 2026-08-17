@@ -16,6 +16,7 @@ app.post('/chat', async (req, res) => {
     headers: {
       'Content-Type': 'application/json',
       'x-api-key': API_KEY, // フロントには絶対に渡さない
+      'anthropic-version': '2023-06-01', // ← 必須ヘッダー（これが無いと毎回invalid_request_errorになる）
     },
     body: JSON.stringify({
       model: 'claude-sonnet-4-6',
